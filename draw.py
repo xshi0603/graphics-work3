@@ -1,22 +1,18 @@
 from display import *
 from matrix import *
 
-'''
-    m = []
-    for c in range( cols ):
-        m.append( [] )
-        for r in range( rows ):
-            m[c].append( 0 )
-    return m
-'''
-
 def draw_lines( matrix, screen, color ):
-    for c in range(len(matrix)):
-        if (c % 2 == 0):
-            draw_line(matrix[c][0], matrix[c][1], matrix[c+1][0], matrix[c+1][1], screen, color)
+    elements = len(matrix)
+    if (elements % 2 == 0):
+        for c in range(elements):
+            if (c % 2 == 0):
+                draw_line(matrix[c][0], matrix[c][1], matrix[c+1][0], matrix[c+1][1], screen, color)
+    else:
+        print("odd num of elements")
 
 def add_edge( matrix, x0, y0, z0, x1, y1, z1 ):
-    pass
+    matrix.append([x0,y0,z0,1])
+    matrix.append([x1,y1,z1,1])
 
 def add_point( matrix, x, y, z=0 ):
     matrix.append([x,y,z,1])
