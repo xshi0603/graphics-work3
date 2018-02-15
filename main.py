@@ -2,6 +2,11 @@ from display import *
 from draw import *
 from matrix import *
 
+from decimal import *
+getcontext().prec = 2
+asd = 0.123123
+print(asd)
+
 screen = new_screen()
 color = [ 0, 255, 0 ]
 matrix = new_matrix()
@@ -31,7 +36,7 @@ add_edge( matrix, 0, 0, 0, 300, 300, 0)
 print_matrix( matrix )
 
 print("Testing matrix_mult")
-'''
+
 m1 = new_matrix(2, 2) #2x2
 m2 = new_matrix(2, 2) #2x2
 m1[0][0] = 2
@@ -42,39 +47,47 @@ m2[0][0] = -1
 m2[1][0] = 4
 m2[0][1] = 7
 m2[1][1] = -6
-print("m1*m2")
-print_matrix( m1 )
-print_matrix( m2 )
-matrix_mult(m1, m2)
 
-print("printing m1")
+print("m1*m2")
+print("Printing m1")
 print_matrix( m1 )
-print("printing m2")
+print("Printing m2")
+print_matrix( m2 )
+
+matrix_mult(m1, m2)
+print("After multiplication...")
+print("Printing m1")
+print_matrix( m1 )
+print("Printing m2")
 print_matrix( m2 )
 
 print("ident*m1")
 i1 = new_matrix(2,2)
 ident(i1)
+print("Printing Ident")
 print_matrix( i1 )
+print("Printing m1")
 print_matrix( m1 )
-matrix_mult(i1, m1)
 
-print("printing i1")
+matrix_mult(i1, m1)
+print("After multiplication...")
+print("Printing Ident")
 print_matrix( i1 )
-print("printing m1")
+print("Printing m1")
 print_matrix( m1 )
-'''
-#MATRIX_MULT WORKS, MAKE BETTER TEST CASES
 
 print("Adding many edges...")
 add_edge( matrix, 500, 0, 0, 0, 0, 0)
 add_edge( matrix, 123, 321, 0, 321, 123, 0)
 
+print("Adding a point")
+add_point( matrix, 0, 0, 0)
+
 print("Drawing:")
 print_matrix(matrix)
 draw_lines( matrix, screen, color )
 
-print("Translating:")
+print("Translating up 250:")
 trans = new_matrix()
 ident(trans)
 trans[3][0] = 0
@@ -88,9 +101,5 @@ matrix_mult(trans, matrix)
 print("Drawing:")
 print_matrix(matrix)
 draw_lines( matrix, screen, color )
-
-
-
-
 
 display(screen)

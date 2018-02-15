@@ -8,6 +8,9 @@ def draw_lines( matrix, screen, color ):
             if (c % 2 == 0):
                 draw_line(matrix[c][0], matrix[c][1], matrix[c+1][0], matrix[c+1][1], screen, color)
     else:
+        for c in range(elements - 1):
+            if (c % 2 == 0):
+                draw_line(matrix[c][0], matrix[c][1], matrix[c+1][0], matrix[c+1][1], screen, color)
         print("odd num of elements")
 
 def add_edge( matrix, x0, y0, z0, x1, y1, z1 ):
