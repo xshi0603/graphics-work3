@@ -10,7 +10,7 @@ def print_matrix( matrix ):
 
     for r in range( rows ):
         for c in range( cols ):
-            retVal += str( matrix[c][r])
+            retVal += str('%.2f'%( matrix[c][r]))
             retVal += "\t"
         retVal += "\n"
 
